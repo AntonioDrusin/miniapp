@@ -1,18 +1,24 @@
 package com.irbis
 
 import spray.routing._
-import spray.http._
+import spray.json._
+import InvoiceJsonProtocol._
 
 // this trait defines our service behavior independently from the service actor
 trait InvoiceService extends HttpService {
-
-  val myRoute =
+  val route =
+    path("invoice" / IntNumber) { id =>
+      get {
+        val invoice = Invoice(id, "SomeName")
+        val result = invoice.toJson
+        complete(result.toString)
+      }
+    } ~
     path("invoice") {
-        get {
-          complete("list")
-        } ~
         post {
-          complete("create")
+          entity(as[Invoice]) (invoice =>
+            complete(s"created : ${invoice.Description}")
+          )
         }
     }
 }
