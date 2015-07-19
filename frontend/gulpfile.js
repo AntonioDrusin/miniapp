@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var plugins = require("gulp-load-plugins")({lazy:false});
+var mainBowerFiles = require("main-bower-files");
 
 gulp.task('scripts', function(){
     //combine all js files of the app
@@ -24,12 +25,11 @@ gulp.task('css', function(){
         .pipe(gulp.dest('./build'));
 });
 
-gulp.task('vendorJS', function(){
-    //concatenate vendor JS files
-    gulp.src(['!./bower_components/**/*.min.js',
-        './bower_components/**/*.js'])
+gulp.task('bower-files', function(){
+    gulp.src(mainBowerFiles())
         .pipe(plugins.concat('lib.js'))
-        .pipe(gulp.dest('./build'));
+        .pipe(gulp.dest('./build'))
+
 });
 
 gulp.task('vendorCSS', function(){
@@ -67,4 +67,4 @@ gulp.task('connect', plugins.connect.server({
     livereload: true
 }));
 
-gulp.task('default',['connect','scripts','templates','css','copy-index','vendorJS','vendorCSS','watch']);
+gulp.task('default',['connect','scripts','templates','css','copy-index','bower-files','vendorCSS','watch']);

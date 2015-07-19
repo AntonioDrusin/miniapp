@@ -6,7 +6,6 @@
     "antonio <antonio.drusin@gmail.com>"
   ],
   "license": "Apache",
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -17,6 +16,12 @@
   "devDependencies": {
     "angular": "~1.2.14",
     "ui-router": "~0.2.15"
+  },
+  "homepage": "https://github.com/AntonioDrusin/miniapp",
+  "description": "Frontend for miniapp example",
+  "dependencies": {
+    "restangular": "~1.5.1",
+    "angular": "~1.2.14",
+    "ui-router": "~0.2.15"
   }
 }
-
