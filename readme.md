@@ -24,7 +24,7 @@
 
         sbt assembly
         docker build -t irbis/invoices .
-        docker run -rm -p 9090:8080 irbis/invoices:latest
+        docker run --rm -p 9090:8080 irbis/invoices:latest
         
 Or run as a daemon
         
