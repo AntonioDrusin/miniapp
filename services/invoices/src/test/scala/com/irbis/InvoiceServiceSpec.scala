@@ -14,7 +14,7 @@ class InvoiceServiceSpec extends Specification with Specs2RouteTest with Invoice
     "return OK when getting an invoice" in {
       Get("/invoice/44") ~> route ~> check {
         status == OK
-        responseAs[String] must contain("\"Id\":44")
+        responseAs[String] must contain("\"id\":44")
       }
     }
 
