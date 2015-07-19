@@ -3,9 +3,9 @@
   "main": "app.js",
   "version": "0.0.0",
   "authors": [
-    "jessie <jessie@apollo.com.ph>"
+    "antonio <antonio.drusin@gmail.com>"
   ],
-  "license": "MIT",
+  "license": "Apache",
   "private": true,
   "ignore": [
     "**/.*",
@@ -16,7 +16,7 @@
   ],
   "devDependencies": {
     "angular": "~1.2.14",
-    "angular-route": "~1.2.14"
+    "ui-router": "~0.2.15"
   }
 }
 
