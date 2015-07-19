@@ -12,14 +12,20 @@ class InvoiceServiceSpec extends Specification with Specs2RouteTest with Invoice
   "InvoiceService" should {
 
     "return OK when getting an invoice" in {
-      Get("/invoice/44") ~> route ~> check {
+      Get("/invoices/44") ~> route ~> check {
         status == OK
         responseAs[String] must contain("\"id\":44")
       }
     }
 
+    "has Access-Control-Allow-Origin header" in {
+      Get("/invoices/32") ~> route ~> check {
+        header("Access-Control-Allow-Origin").head.value must be("*")
+      }
+    }
+
     "return OK when POSTing an invoice" in {
-      Post("/invoice",HttpEntity(`application/json`, """{"description": "Jane", "id" : 42 }""")) ~> route ~> check {
+      Post("/invoices",HttpEntity(`application/json`, """{"description": "Jane", "id" : 42 }""")) ~> route ~> check {
         status == OK
         handled must beTrue
       }
@@ -28,7 +34,7 @@ class InvoiceServiceSpec extends Specification with Specs2RouteTest with Invoice
     // These are just standard tests.
 
     "leave GET requests to other paths unhandled" in {
-      Get("/invoices") ~> route ~> check {
+      Get("/invoicess") ~> route ~> check {
         handled must beFalse
       }
     }

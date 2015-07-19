@@ -2,6 +2,7 @@ package com.irbis
 
 import spray.httpx.SprayJsonSupport
 import spray.json.DefaultJsonProtocol
+
 import scala.reflect.ClassTag
 
 case class Invoice (  Id : Long,  Description : String)
