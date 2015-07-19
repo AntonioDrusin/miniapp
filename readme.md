@@ -30,3 +30,21 @@ Or run as a daemon
         
         $INVOICE=(docker run -d -p 9090:8080 irbis/invoices:latest)
         
+## running the frontend
+
+Install the necessary npm bits
+        
+        npm install -g generator-gulp-ng; npm install -g gulp; npm install -g karma-cli
+        
+Run gulp
+        
+        gulp
+
+In another window        
+
+        karma start karma-unit.js
+        
+open browser to http://localhost:9000
+
+        
+        
