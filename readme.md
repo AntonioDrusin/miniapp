@@ -1,4 +1,4 @@
-# Running the application
+# Running the application (inside invoices folder)
 
 1. Launch SBT:
 
@@ -30,7 +30,7 @@ Or run as a daemon
         
         $INVOICE=(docker run -d -p 9090:8080 irbis/invoices:latest)
         
-## running the frontend
+## running the frontend (inside frontend folder)
 
 Install the necessary npm bits
         

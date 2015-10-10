@@ -34,7 +34,7 @@ class InvoiceServiceSpec extends Specification with Specs2RouteTest with Invoice
     // These are just standard tests.
 
     "leave GET requests to other paths unhandled" in {
-      Get("/invoicess") ~> route ~> check {
+      Get("/invoices_incorrect_path") ~> route ~> check {
         handled must beFalse
       }
     }
